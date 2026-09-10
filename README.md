@@ -16,6 +16,8 @@ MScroll is a lightweight native macOS menu-bar utility that reverses conventiona
 
 The packaged application is written to `.build/MScroll.app`.
 
+The source icon is kept in `assets/MScroll.png`. The packaging script generates the required macOS icon sizes and embeds them as `AppIcon.icns`.
+
 ## Install
 
 1. Build the application.
