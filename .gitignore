@@ -1,2 +1,8 @@
 AGENTS.md
 CLAUDE.md
+.DS_Store
+__MACOSX/
+.build/
+.swiftpm/
+
+project-notes
