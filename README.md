@@ -30,8 +30,6 @@ A signed and notarized release is not available yet. The current `v0.1.0` beta i
 5. Grant Accessibility permission when macOS requests it.
 6. Keep **Natural scrolling** enabled in macOS System Settings.
 
-Only bypass Gatekeeper for a copy downloaded from this repository. A future release will use Developer ID signing and Apple notarization to remove this extra installation step.
-
 MScroll registers itself to launch at login on first run. You can change this from its menu-bar menu or under **System Settings → General → Login Items**.
 
 ## Usage
@@ -77,7 +75,7 @@ Build an unsigned compressed DMG containing the app and an Applications shortcut
 
 The DMG is written to `.build/MScroll-<version>-<architecture>.dmg`.
 
-An ad-hoc-signed build is suitable for local testing. Public distribution will use Developer ID signing and Apple notarization so downloaded releases can pass Gatekeeper normally.
+An ad-hoc-signed build is suitable for local testing and unsigned beta distribution.
 
 ## How it works
 
