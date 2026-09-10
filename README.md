@@ -1,34 +1,97 @@
-# MScroll
+<p align="center">
+  <img src="assets/MScroll.png" alt="MScroll icon" width="160">
+</p>
 
-MScroll is a lightweight native macOS menu-bar utility that reverses conventional mouse-wheel scrolling while leaving trackpad scrolling unchanged.
+<h1 align="center">MScroll</h1>
 
-## Requirements
+<p align="center">
+  Independent scrolling directions for your Mac mouse and trackpad.
+</p>
+
+MScroll is a lightweight native macOS menu-bar utility. It reverses conventional mouse-wheel scrolling while leaving trackpad scrolling unchanged, solving the shared Natural Scrolling setting in macOS.
+
+## Features
+
+- Reverses vertical and horizontal mouse-wheel scrolling.
+- Leaves continuous trackpad gestures unchanged.
+- Runs quietly as a menu-bar app with no Dock icon.
+- Starts automatically at login.
+- Uses no network connection, analytics, or third-party dependencies.
+- Remains idle until a scroll event occurs.
+
+## Installation
+
+A signed public DMG is not available yet. Until the first release, build MScroll from source using the instructions below.
+
+After building:
+
+1. Move `.build/MScroll.app` into `/Applications`.
+2. Open MScroll from Applications.
+3. Grant Accessibility permission when macOS requests it.
+4. Keep **Natural scrolling** enabled in macOS System Settings.
+
+MScroll registers itself to launch at login on first run. You can change this from its menu-bar menu or under **System Settings → General → Login Items**.
+
+## Usage
+
+Select the MScroll icon in the menu bar to:
+
+- Enable or disable **Reverse Mouse Scrolling**.
+- Enable or disable **Launch at Login**.
+- Grant Accessibility permission if needed.
+- Quit MScroll.
+
+A filled arrow icon means scroll reversal is active. An exclamation icon means MScroll still needs Accessibility permission.
+
+## Build from source
+
+### Requirements
 
 - macOS 13 or newer
-- Apple Swift toolchain (included with Xcode or Xcode Command Line Tools)
+- Apple Swift toolchain, included with Xcode or Xcode Command Line Tools
 
-## Build and test
+Clone and verify the project:
 
 ```sh
+git clone https://github.com/jiasshengg/mscroll.git
+cd mscroll
 ./scripts/test.sh
-./scripts/build-app.sh
 ```
 
-The packaged application is written to `.build/MScroll.app`.
+Build the application bundle:
 
-The source icon is kept in `assets/MScroll.png`. The packaging script generates the required macOS icon sizes and embeds them as `AppIcon.icns`.
+```sh
+./scripts/build-app.sh
+open .build
+```
 
-## Install
+The packaging script creates `.build/MScroll.app` for the architecture of the current Mac. It also generates the required macOS icon sizes from `assets/MScroll.png` and applies a local ad-hoc signature.
 
-1. Build the application.
-2. Move `.build/MScroll.app` into `/Applications`.
-3. Open MScroll.
-4. Grant Accessibility permission when macOS requests it.
-
-MScroll registers itself to launch at login on first run. You can change that behavior from its menu-bar menu.
+An ad-hoc-signed build is suitable for local testing. Public distribution will use Developer ID signing and Apple notarization so downloaded releases can pass Gatekeeper normally.
 
 ## How it works
 
-Trackpads normally produce continuous, pixel-based scroll events. Conventional mouse wheels normally produce line-based events. MScroll reverses the latter and leaves the former unchanged.
+Trackpads normally produce continuous, pixel-based scroll events. Conventional mouse wheels normally produce line-based events. MScroll installs a Core Graphics event tap, reverses the line-based scroll deltas, and returns continuous events unchanged.
 
-Magic Mouse scrolling is continuous and is therefore treated like trackpad scrolling in this version.
+macOS requires Accessibility permission because MScroll modifies system-wide scroll events. MScroll does not inspect keystrokes or store input activity.
+
+## Limitations
+
+- Magic Mouse scrolling is continuous and is treated like trackpad scrolling in this version.
+- Device detection is based on scroll-event behavior rather than a specific mouse identity.
+- Rebuilding the app may cause macOS to request Accessibility permission again because local builds are ad-hoc signed.
+
+## Privacy and performance
+
+MScroll runs entirely on your Mac. It has no networking, tracking, analytics, database, or background polling. Its event listener sleeps while you are not scrolling.
+
+## Troubleshooting
+
+If mouse scrolling is unchanged:
+
+1. Confirm **Reverse Mouse Scrolling** is enabled in the MScroll menu.
+2. Open **System Settings → Privacy & Security → Accessibility**.
+3. Confirm the copy of MScroll inside `/Applications` is enabled.
+4. Quit and reopen MScroll.
+
+If you rebuilt or moved the app and permission no longer works, remove the old MScroll entry from Accessibility, add `/Applications/MScroll.app` again, and reopen it.
