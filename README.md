@@ -21,14 +21,16 @@ MScroll is a lightweight native macOS menu-bar utility. It reverses conventional
 
 ## Installation
 
-A signed public DMG is not available yet. Until the first release, build MScroll from source using the instructions below.
+A signed and notarized release is not available yet. The current `v0.1.0` beta is an unsigned Apple Silicon build intended for early testing.
 
-After building:
+1. Download `MScroll-0.1.0-arm64.dmg` from [GitHub Releases](https://github.com/jiasshengg/mscroll/releases).
+2. Open the DMG and drag MScroll into Applications.
+3. Try to open MScroll from Applications.
+4. If macOS blocks it, open **System Settings → Privacy & Security**, scroll to Security, and select **Open Anyway**.
+5. Grant Accessibility permission when macOS requests it.
+6. Keep **Natural scrolling** enabled in macOS System Settings.
 
-1. Move `.build/MScroll.app` into `/Applications`.
-2. Open MScroll from Applications.
-3. Grant Accessibility permission when macOS requests it.
-4. Keep **Natural scrolling** enabled in macOS System Settings.
+Only bypass Gatekeeper for a copy downloaded from this repository. A future release will use Developer ID signing and Apple notarization to remove this extra installation step.
 
 MScroll registers itself to launch at login on first run. You can change this from its menu-bar menu or under **System Settings → General → Login Items**.
 
@@ -66,6 +68,14 @@ open .build
 ```
 
 The packaging script creates `.build/MScroll.app` for the architecture of the current Mac. It also generates the required macOS icon sizes from `assets/MScroll.png` and applies a local ad-hoc signature.
+
+Build an unsigned compressed DMG containing the app and an Applications shortcut:
+
+```sh
+./scripts/build-dmg.sh
+```
+
+The DMG is written to `.build/MScroll-<version>-<architecture>.dmg`.
 
 An ad-hoc-signed build is suitable for local testing. Public distribution will use Developer ID signing and Apple notarization so downloaded releases can pass Gatekeeper normally.
 
