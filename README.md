@@ -23,7 +23,7 @@ Glide is a lightweight native macOS menu-bar utility. It reverses conventional m
 
 A signed and notarized release is not available yet. The current `v0.1.0` beta is an unsigned Apple Silicon build intended for early testing.
 
-1. Download `Glide-0.1.0-arm64.dmg` from [GitHub Releases](https://github.com/jiasshengg/mscroll/releases).
+1. Download `Glide-0.1.0-arm64.dmg` from [GitHub Releases](https://github.com/jiasshengg/glide/releases).
 2. Open the DMG and drag Glide into Applications.
 3. Try to open Glide from Applications.
 4. If macOS blocks it, open **System Settings → Privacy & Security**, scroll to Security, and select **Open Anyway**.
@@ -53,8 +53,8 @@ A filled arrow icon means scroll reversal is active. An exclamation icon means G
 Clone and verify the project:
 
 ```sh
-git clone https://github.com/jiasshengg/mscroll.git
-cd mscroll
+git clone https://github.com/jiasshengg/glide.git
+cd glide
 ./scripts/test.sh
 ```
 
