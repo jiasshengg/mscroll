@@ -51,9 +51,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     private func configureMenu() {
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "arrow.up.arrow.down.circle", accessibilityDescription: "MScroll")
+            button.image = NSImage(systemSymbolName: "arrow.up.arrow.down.circle", accessibilityDescription: "Glide")
             button.image?.isTemplate = true
-            button.toolTip = "MScroll"
+            button.toolTip = "Glide"
         }
 
         let menu = NSMenu()
@@ -75,7 +75,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
         menu.addItem(.separator())
 
-        let quitItem = NSMenuItem(title: "Quit MScroll", action: #selector(quit), keyEquivalent: "q")
+        let quitItem = NSMenuItem(title: "Quit Glide", action: #selector(quit), keyEquivalent: "q")
         quitItem.target = self
         menu.addItem(quitItem)
 
@@ -154,7 +154,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             } else {
                 symbolName = "arrow.up.arrow.down.circle"
             }
-            button.image = NSImage(systemSymbolName: symbolName, accessibilityDescription: "MScroll")
+            button.image = NSImage(systemSymbolName: symbolName, accessibilityDescription: "Glide")
             button.image?.isTemplate = true
         }
     }

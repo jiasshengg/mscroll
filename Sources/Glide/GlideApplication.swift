@@ -1,7 +1,7 @@
 import AppKit
 
 @main
-enum MScrollApplication {
+enum GlideApplication {
     @MainActor
     static func main() {
         let application = NSApplication.shared

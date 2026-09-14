@@ -3,15 +3,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "MScroll",
+    name: "Glide",
     platforms: [
         .macOS(.v13)
     ],
     products: [
-        .executable(name: "MScroll", targets: ["MScroll"])
+        .executable(name: "Glide", targets: ["Glide"])
     ],
     targets: [
-        .executableTarget(name: "MScroll")
+        .executableTarget(name: "Glide")
     ],
     swiftLanguageModes: [.v5]
 )

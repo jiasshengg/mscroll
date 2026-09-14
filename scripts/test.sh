@@ -11,7 +11,7 @@ cd "$repo_root"
 swift build
 swiftc \
     -parse-as-library \
-    Sources/MScroll/ScrollEventTap.swift \
-    Tests/MScrollChecks/main.swift \
-    -o "$temporary_dir/MScrollChecks"
-"$temporary_dir/MScrollChecks"
+    Sources/Glide/ScrollEventTap.swift \
+    Tests/GlideChecks/main.swift \
+    -o "$temporary_dir/GlideChecks"
+"$temporary_dir/GlideChecks"

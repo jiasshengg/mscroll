@@ -5,7 +5,7 @@ set -euo pipefail
 script_dir=${0:A:h}
 repo_root=${script_dir:h}
 configuration=${1:-release}
-app_path="$repo_root/.build/MScroll.app"
+app_path="$repo_root/.build/Glide.app"
 temporary_dir=$(mktemp -d)
 iconset_path="$temporary_dir/AppIcon.iconset"
 trap 'rm -rf "$temporary_dir"' EXIT
@@ -14,20 +14,20 @@ cd "$repo_root"
 swift build -c "$configuration"
 binary_dir=$(swift build -c "$configuration" --show-bin-path)
 
-if [[ "$app_path" != "$repo_root/.build/MScroll.app" ]]; then
+if [[ "$app_path" != "$repo_root/.build/Glide.app" ]]; then
     print -u2 "Unexpected application output path"
     exit 1
 fi
 
 rm -rf "$app_path"
 mkdir -p "$app_path/Contents/MacOS" "$app_path/Contents/Resources" "$iconset_path"
-cp "$binary_dir/MScroll" "$app_path/Contents/MacOS/MScroll"
+cp "$binary_dir/Glide" "$app_path/Contents/MacOS/Glide"
 cp "$repo_root/Packaging/Info.plist" "$app_path/Contents/Info.plist"
 
 render_icon() {
     local size=$1
     local filename=$2
-    sips -z "$size" "$size" "$repo_root/assets/MScroll.png" --out "$iconset_path/$filename" >/dev/null
+    sips -z "$size" "$size" "$repo_root/assets/Glide.png" --out "$iconset_path/$filename" >/dev/null
 }
 
 render_icon 16 icon_16x16.png

@@ -1,14 +1,14 @@
 <p align="center">
-  <img src="assets/MScroll.png" alt="MScroll icon" width="160">
+  <img src="assets/Glide.png" alt="Glide icon" width="160">
 </p>
 
-<h1 align="center">MScroll</h1>
+<h1 align="center">Glide</h1>
 
 <p align="center">
   Independent scrolling directions for your Mac mouse and trackpad.
 </p>
 
-MScroll is a lightweight native macOS menu-bar utility. It reverses conventional mouse-wheel scrolling while leaving trackpad scrolling unchanged, solving the shared Natural Scrolling setting in macOS.
+Glide is a lightweight native macOS menu-bar utility. It reverses conventional mouse-wheel scrolling while leaving trackpad scrolling unchanged, solving the shared Natural Scrolling setting in macOS.
 
 ## Features
 
@@ -23,25 +23,25 @@ MScroll is a lightweight native macOS menu-bar utility. It reverses conventional
 
 A signed and notarized release is not available yet. The current `v0.1.0` beta is an unsigned Apple Silicon build intended for early testing.
 
-1. Download `MScroll-0.1.0-arm64.dmg` from [GitHub Releases](https://github.com/jiasshengg/mscroll/releases).
-2. Open the DMG and drag MScroll into Applications.
-3. Try to open MScroll from Applications.
+1. Download `Glide-0.1.0-arm64.dmg` from [GitHub Releases](https://github.com/jiasshengg/mscroll/releases).
+2. Open the DMG and drag Glide into Applications.
+3. Try to open Glide from Applications.
 4. If macOS blocks it, open **System Settings → Privacy & Security**, scroll to Security, and select **Open Anyway**.
 5. Grant Accessibility permission when macOS requests it.
 6. Keep **Natural scrolling** enabled in macOS System Settings.
 
-MScroll registers itself to launch at login on first run. You can change this from its menu-bar menu or under **System Settings → General → Login Items**.
+Glide registers itself to launch at login on first run. You can change this from its menu-bar menu or under **System Settings → General → Login Items**.
 
 ## Usage
 
-Select the MScroll icon in the menu bar to:
+Select the Glide icon in the menu bar to:
 
 - Enable or disable **Reverse Mouse Scrolling**.
 - Enable or disable **Launch at Login**.
 - Grant Accessibility permission if needed.
-- Quit MScroll.
+- Quit Glide.
 
-A filled arrow icon means scroll reversal is active. An exclamation icon means MScroll still needs Accessibility permission.
+A filled arrow icon means scroll reversal is active. An exclamation icon means Glide still needs Accessibility permission.
 
 ## Build from source
 
@@ -65,7 +65,7 @@ Build the application bundle:
 open .build
 ```
 
-The packaging script creates `.build/MScroll.app` for the architecture of the current Mac. It also generates the required macOS icon sizes from `assets/MScroll.png` and applies a local ad-hoc signature.
+The packaging script creates `.build/Glide.app` for the architecture of the current Mac. It also generates the required macOS icon sizes from `assets/Glide.png` and applies a local ad-hoc signature.
 
 Build an unsigned compressed DMG containing the app and an Applications shortcut:
 
@@ -73,15 +73,15 @@ Build an unsigned compressed DMG containing the app and an Applications shortcut
 ./scripts/build-dmg.sh
 ```
 
-The DMG is written to `.build/MScroll-<version>-<architecture>.dmg`.
+The DMG is written to `.build/Glide-<version>-<architecture>.dmg`.
 
 An ad-hoc-signed build is suitable for local testing and unsigned beta distribution.
 
 ## How it works
 
-Trackpads normally produce continuous, pixel-based scroll events. Conventional mouse wheels normally produce line-based events. MScroll installs a Core Graphics event tap, reverses the line-based scroll deltas, and returns continuous events unchanged.
+Trackpads normally produce continuous, pixel-based scroll events. Conventional mouse wheels normally produce line-based events. Glide installs a Core Graphics event tap, reverses the line-based scroll deltas, and returns continuous events unchanged.
 
-macOS requires Accessibility permission because MScroll modifies system-wide scroll events. MScroll does not inspect keystrokes or store input activity.
+macOS requires Accessibility permission because Glide modifies system-wide scroll events. Glide does not inspect keystrokes or store input activity.
 
 ## Limitations
 
@@ -91,15 +91,15 @@ macOS requires Accessibility permission because MScroll modifies system-wide scr
 
 ## Privacy and performance
 
-MScroll runs entirely on your Mac. It has no networking, tracking, analytics, database, or background polling. Its event listener sleeps while you are not scrolling.
+Glide runs entirely on your Mac. It has no networking, tracking, analytics, database, or background polling. Its event listener sleeps while you are not scrolling.
 
 ## Troubleshooting
 
 If mouse scrolling is unchanged:
 
-1. Confirm **Reverse Mouse Scrolling** is enabled in the MScroll menu.
+1. Confirm **Reverse Mouse Scrolling** is enabled in the Glide menu.
 2. Open **System Settings → Privacy & Security → Accessibility**.
-3. Confirm the copy of MScroll inside `/Applications` is enabled.
-4. Quit and reopen MScroll.
+3. Confirm the copy of Glide inside `/Applications` is enabled.
+4. Quit and reopen Glide.
 
-If you rebuilt or moved the app and permission no longer works, remove the old MScroll entry from Accessibility, add `/Applications/MScroll.app` again, and reopen it.
+If you rebuilt or moved the app and permission no longer works, remove the old Glide entry from Accessibility, add `/Applications/Glide.app` again, and reopen it.

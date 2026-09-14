@@ -11,11 +11,11 @@ enum CheckFailure: Error, CustomStringConvertible {
 }
 
 @main
-enum MScrollChecks {
+enum GlideChecks {
     static func main() throws {
         try reversesLineBasedScrollAxes()
         try leavesContinuousScrollEventsUnchanged()
-        print("MScroll checks passed")
+        print("Glide checks passed")
     }
 
     private static func reversesLineBasedScrollAxes() throws {
