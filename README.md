@@ -67,7 +67,7 @@ open .build
 
 The packaging script creates `.build/Glide.app` for the architecture of the current Mac. It also generates the required macOS icon sizes from `assets/Glide.png` and applies a local ad-hoc signature.
 
-Build an unsigned compressed DMG containing the app and an Applications shortcut:
+Build an unsigned compressed DMG containing the app, an Applications shortcut, and a branded drag-to-install window:
 
 ```sh
 ./scripts/build-dmg.sh
