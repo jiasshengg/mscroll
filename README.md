@@ -21,9 +21,9 @@ Glide is a lightweight native macOS menu-bar utility. It reverses conventional m
 
 ## Installation
 
-A signed and notarized release is not available yet. The current `v0.1.0` beta is an unsigned Apple Silicon build intended for early testing.
+A signed and notarized release is not available yet. The current `v0.2.0` beta is an unsigned Apple Silicon build intended for early testing.
 
-1. Download `Glide-0.1.0-arm64.dmg` from [GitHub Releases](https://github.com/jiasshengg/glide/releases).
+1. Download `Glide-0.2.0-arm64.dmg` from [GitHub Releases](https://github.com/jiasshengg/glide/releases).
 2. Open the DMG and drag Glide into Applications.
 3. Try to open Glide from Applications.
 4. If macOS blocks it, open **System Settings → Privacy & Security**, scroll to Security, and select **Open Anyway**.
